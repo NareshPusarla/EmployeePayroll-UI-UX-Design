@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="form-content">
-                <form class="form" action="#" onsubmit="save(); return false">
+                <form id="formId" class="form" action="#" onreset="resetForm()" onsubmit="save()">
                     <div class="form-head">Employee Payroll form</div>
                     <div class = "row-content">
                         <label class="label text" for="name">Name</label>
@@ -89,16 +89,6 @@
                     <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
-            </div>
-            <div id="formId" class="form-content">
-                <form class="form" action="#" onreset="resetForm()"" onsubmit="save()">
-                    <div class="form-head">Employee Payroll form</div>
-                    <div class = "row-content">
-                        <label class="label text" for="name">Name</label>
-                        <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
-                        <error-output class="text-error" for="text"></error-output>
-                    </div>
-                </form>
             </div>
         </header>
     </body>
