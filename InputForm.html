@@ -3,112 +3,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
         <title>Employee Payroll Form</title>
-        <style>
-            body{
-                margin: 0;
-                height: 100%;
-            }
-            .header{
-                padding: 15px 0;
-                background-color: #ffffff;
-            }
-            .header-content{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                border: 0px solid green;
-            }
-            .logo-content{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                border: 0px solid green;
-                width: 80%;
-            }
-            .logo-content-img{
-                border: solid 0px #42515f;
-            }
-            .emp-text{
-                font: normal normal bold 20px/25px Montserrat;
-                font-family: "Montserrat", sans-serif;
-                letter-spacing: 0px;
-                color: #82a70c;
-                text-transform: capitalize;
-            }
-            .exp-payroll{
-                color: #42515f;
-            }
-            *{box-sizing: border-box;}
-            .form-content{
-                min-height: calc(100%-80px);
-                background-color: #f7f7f7;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: 0px solid green;
-            }
-            .form{
-                width: 65%;
-                padding: 44px 60px;
-                background: #ffffff 0% 0% no-repeat padding-box;
-                box-shadow: 0px 3px 6px #00000029;
-                border: 1px solid #f5f5f5;
-                border-radius: 8px;
-                opacity: 1;
-            }
-            .form-head{
-                font: normal normal bold 24px/37px Roboto;
-                letter-spacing: 0px;
-                color: #42515f;
-                text-transform: capitalize;
-                opacity: 1;
-                padding-bottom: 20px;
-            }
-            .row-content{
-                display: flex;
-                flex-direction: row;
-                margin-bottom: 10px;
-                align-items: center;
-                border: 0px solid green;
-            }
-            .label{
-                min-width: 140px;
-            }
-            label{
-                padding: 12px 12px 12px 0;
-                display: inline-block;
-            }
-            .text{
-                font-size: 16px;
-                color: #42515f;
-                opacity: 1;
-                font-family: Roboto;
-            }
-            .input{
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                resize: vertical;
-            }
-            .profile-radio-content{
-                display: flex;
-                flex-direction: row;
-            }
-            .profile-radio-content > label{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
-            .profile{
-                width: 40px;
-                border-radius: 50%;
-                margin-left: 12px;
-            }
-            
-        </style>
+        <link href="../EmployeePayroll-UI-UX-Design/StyleSheet.css" rel="stylesheer">
     </head>
     <body>
         <header class="header-content header">
@@ -175,14 +70,23 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="salary">Choose your salary</label>
-                <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
-                <output class="salary-output text" for="salary">400000</output>
+                <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" value="400000">
+                <output class="salary-output text" for="salary">500000</output>
             </div>
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
-                <div>
-                    <input type="datetime-local" id="date" name="date>
-                    <span class="validity"></span>
+                <input type="datetime-local" id="date" name="date>
+                <span class="validity"></span>
+            </div>
+            <div class="row-content">
+                <label class="label text" for="notes">Notes</label>
+                <textarea id="notes" class="input" name="Notes" placeholder="" style="height: 100px"></textarea>
+            </div>
+            <div class="buttonParent">
+                <a href="./InputForm.html" class="resetButton button cancelButton">Cancel</a>
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton" id="submitButton">Submit</button>
+                    <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
         </header>
