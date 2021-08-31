@@ -93,6 +93,20 @@
                 border-radius: 4px;
                 resize: vertical;
             }
+            .profile-radio-content{
+                display: flex;
+                flex-direction: row;
+            }
+            .profile-radio-content > label{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .profile{
+                width: 40px;
+                border-radius: 50%;
+                margin-left: 12px;
+            }
         </style>
     </head>
     <body>
@@ -112,6 +126,27 @@
                         <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
                     </div>
                 </form>
+            </div>
+            <div class="row-content">
+                <label class="label text" for="profile">Profile Image</label>
+                <div class="profile-radio-content">
+                    <label>
+                        <input type="radio" id="profile1" name="profile" value="../assets/profile-images/Ellipse -1.png">
+                        <img class="profile" id="image1" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -1.png">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile2" name="profile" value="../assets/profile-images/Ellipse -2.png">
+                        <img class="profile" id="image2" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -2.png">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile3" name="profile" value="../assets/profile-images/Ellipse -3.png">
+                        <img class="profile" id="image3" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -3.png">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile4" name="profile" value="../assets/profile-images/Ellipse -4.png">
+                        <img class="profile" id="image4" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -4.png">
+                    </label>
+                </div>
             </div>
         </header>
     </body>
