@@ -16,13 +16,12 @@ body{
 .logo-content{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     border: 0px solid green;
     width: 80%;
 }
 .logo-content-img{
-    border: solid 0px #42515f;
+    border: solid 1px #42515f;
 }
 .emp-text{
     font: normal normal bold 20px/25px Montserrat;
@@ -139,12 +138,12 @@ label{
     text-decoration: none;
     text-align: center;
 }
-error-output{
+/*error-output{
     margin-left: 10px;
     font-size: 12px;
     font-style: italic;
     color: red;
-}
+}*/
 @media only screen and (max-width: 960px){
     .cancelButton{
         margin-left: 0px;

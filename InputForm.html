@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
-        <title>Employee Payroll Form</title>
-        <link href="../EmployeePayroll-UI-UX-Design/StyleSheet.css" rel="stylesheer">
-        <script type="text/javascript" src="../EmployeePayroll-UI-UX-Design/PayrollForm.js"></script>
-    </head>
-    <body>
-        <header class="header-content header">
-            <div class="logo-content">
-                <img src="/assets/images/logo.png" alt="">
-                <div>
-                    <span class="emp-text">EMPLOYEE</span>
-                    <span class="emp-text emp-payroll">PAYROLL</span>
-                </div>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
+    <title>Employee Payroll Form</title>
+    <link href="../EmployeePayroll-UI-UX-Design/StyleSheet.css" rel="stylesheer">
+    <script type="text/javascript" src="../EmployeePayroll-UI-UX-Design/PayrollForm.js"></script>
+</head>
+
+<body>
+    <header class="header-content header">
+        <div class="logo-content">
+            <img src="/assets/images/logo.png" alt="logo">
+            <div>
+                <span class="emp-text">EMPLOYEE</span><br>
+                <span class="emp-text emp-payroll">PAYROLL</span>
             </div>
-            <div class="form-content">
-                <form id="formId" class="form" action="#" onreset="resetForm()" onsubmit="save()">
-                    <div class="form-head">Employee Payroll form</div>
-                    <div class = "row-content">
-                        <label class="label text" for="name">Name</label>
-                        <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
-                    </div>
-                </form>
+        </div>
+    </header>
+    <div class="form-content">
+        <form id="formId" class="form" action="#" onreset="resetForm()" onsubmit="save();return false">
+            <div class="form-head">Employee Payroll form</div>
+            <div class="row-content">
+                <label class="label text" for="name">Name</label>
+                <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
             </div>
             <div class="row-content">
                 <label class="label text" for="profile">Profile Image</label>
                 <div class="profile-radio-content">
                     <label>
-                        <input type="radio" id="profile1" name="profile" value="../assets/profile-images/Ellipse -1.png">
-                        <img class="profile" id="image1" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -1.png">
+                        <input type="radio" id="profile1" name="profile"
+                            value="../assets/profile-images/Ellipse -1.png">
+                        <img class="profile" id="image1"
+                            src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -1.png">
                     </label>
                     <label>
-                        <input type="radio" id="profile2" name="profile" value="../assets/profile-images/Ellipse -2.png">
-                        <img class="profile" id="image2" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -2.png">
+                        <input type="radio" id="profile2" name="profile"
+                            value="../assets/profile-images/Ellipse -2.png">
+                        <img class="profile" id="image2"
+                            src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -2.png">
                     </label>
                     <label>
-                        <input type="radio" id="profile3" name="profile" value="../assets/profile-images/Ellipse -3.png">
-                        <img class="profile" id="image3" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -3.png">
+                        <input type="radio" id="profile3" name="profile"
+                            value="../assets/profile-images/Ellipse -3.png">
+                        <img class="profile" id="image3"
+                            src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -3.png">
                     </label>
                     <label>
-                        <input type="radio" id="profile4" name="profile" value="../assets/profile-images/Ellipse -4.png">
-                        <img class="profile" id="image4" src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -4.png">
+                        <input type="radio" id="profile4" name="profile"
+                            value="../assets/profile-images/Ellipse -4.png">
+                        <img class="profile" id="image4"
+                            src="../EmployeePayroll-UI-UX-Design/assets/profile-images/Ellipse -4.png">
                     </label>
                 </div>
             </div>
@@ -76,8 +85,8 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
-                <input type="datetime-local" id="date" name="date>
-                <span class="validity"></span>
+                <input type="datetime-local" id="date" name="date><br>
+                    <span class=" validity"></span>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
@@ -90,6 +99,8 @@
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
-        </header>
-    </body>
+        </form>
+    </div>
+</body>
+
 </html>
