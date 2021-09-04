@@ -16,6 +16,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             textError.textContent = e;
         }
     });
+
     //event listener for salary
     const salary = document.querySelector("#salary");
     const output = document.querySelector(".salary-output");
@@ -47,23 +48,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
     checkForUpdate();
 });
 
-
-
-/**
- * UC11 to create Employee Payroll Object On Save.
- */
+//to create Employee Payroll Object On Save.
+ 
 const save = () => {
-    // To be invoked in case the DOM event listener fails to validate the date or name
     event.preventDefault();
-    // To stop the form submission in case validation fails
     event.stopPropagation();
     try {
         setEmployeePayrollObject();
         createAndUpdateStorage();
         alert(createEmployeePayrollData());
         resetForm();
-        // Once the data is save moving to the home page to see the data directly
-        // Note that this does not mean our home button is redundant
         window.location.replace(site_properties.home_page);
     } catch (e) {
         return;
@@ -130,18 +124,14 @@ const createNewEmployeeId = () => {
     return empID;
 };
 
-
-/**
- * UC12 to save the Employee Payroll Object to Local Storage.
- */
-
+//to save the Employee Payroll Object to Local Storage.
+ 
 function createAndUpdateStorage() {
     let employeePayrollList = JSON.parse(
         localStorage.getItem("EmployeePayrollList")
     );
     console.log(employeePayrollList);
 
-    // If the employeePayrollData list is not empty i.e. already created then push the incoming data onto the local storage
     if (employeePayrollList) {
         let empPayrollData = employeePayrollList.find(
             (empData) => empData._id == employeePayrollObj._id
@@ -152,7 +142,6 @@ function createAndUpdateStorage() {
             const index = employeePayrollList
                 .map((empData) => empData._id)
                 .indexOf(empPayrollData._id);
-            // Removing the element from the list once update request is passed
             employeePayrollList.splice(index, 1, createEmployeePayrollData(empPayrollData._id));
         }
     } else {
@@ -174,20 +163,14 @@ const getSelectedValues = (propertyValue) => {
     return selItems;
 }
 
-/*
- *1: querySelector is newer feature.
- *2: the querySelector method can be used when selecting by element name, nesting, or class name
- *3: querySelector lets you find elements with rules that cant be expressed with getElementById
- */
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
 }
 
 
-/**
- *Update an Employee Payroll details.
- */
+//Update an Employee Payroll details.
+ 
 const setForm = () => {
     setValue('#name', employeePayrollObj._name);
     setSelectedValues('[name=profile]', employeePayrollObj._profilePic);

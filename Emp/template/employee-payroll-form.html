@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <!-------------------UC1---------------------->
     <header class="header-content header">
         <div class="logo-content">
             <img src="../assets/images/logo.png" alt="logo">
@@ -23,16 +22,13 @@
     </header>
     <div class="form-content">
         <form class="form" action="#" onreset="resetForm()" onsubmit="save();">
-            <!-----------UC2----------->
             <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name..." required>
-                <!----------------------UC10---------------->
                 <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
-                <!--------------------UC3------------------------>
                 <label class="label text" for="profile">Profile images</label>
                 <div class="profile-radio-content">
                     <label>
@@ -58,7 +54,6 @@
                 </div>
             </div>
             <div class="row-content">
-                <!----------------------------UC4--------------------------->
                 <label class="label text" for="gender">Gender</label>
                 <div>
                     <input type="radio" id="male" name="gender" value="male">
@@ -89,7 +84,6 @@
                 <output class="salary-output text" for="salary">400000</output>
             </div>
             <div class="row-content">
-                <!---------------------------UC 5----------------------->
                 <label class="label text" for="startdate">Start Date: </label>
                 <div name="startdate" id="startdate">
                     <select id="day" name="Day">
@@ -147,7 +141,6 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
-                <!--------------UC 10-------------------------->
                 <error-output class="date-error" for="startdate"></error-output>
             </div>
             <div class="row-content">

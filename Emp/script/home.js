@@ -13,7 +13,6 @@ const getEmployeePayrollDataFromStorage = () => {
     return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
 }
 
-
 createInnerHtml = () => {
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th>"+"<th>start Date</th><th>Actions</th></tr>";
 
@@ -45,7 +44,6 @@ function getDeptHtml(deptList) {
     return deptHtml
 }
 
-
 //Remove an Employee from the Payroll details.
 const remove = (node) => {
     let empPayrollData = empPayrollList.find((empData) => empData._id == node.id);
@@ -60,7 +58,6 @@ const remove = (node) => {
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
 }
-
 
 const update = (node) => {
 
