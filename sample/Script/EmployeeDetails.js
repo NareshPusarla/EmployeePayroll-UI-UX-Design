@@ -69,7 +69,7 @@ class EmployeeDetails {
 
 let isUpdate = false;
 let employeePayrollObj = {};
-window.addEventListener('DOMContentLoader', () => {
+window.addEventListener('DOMContentLoader', (event) => {
     const name = document.querySelector('#name');
     name.addEventListener('input', function () {
         if (name.value.length == 0) {
