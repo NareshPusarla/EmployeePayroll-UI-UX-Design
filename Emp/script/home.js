@@ -1,16 +1,39 @@
 let empPayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
-    empPayrollList = getEmployeePayrollDataFromStorage();
-    let element = document.querySelector(".emp-count");
-    if (element) {
-        element.textContent = empPayrollList.length;
-    }
-    createInnerHtml();
-    localStorage.removeItem("editEmp");
+    // empPayrollList = getEmployeePayrollDataFromStorage();
+    // let element = document.querySelector(".emp-count");
+    // if (element) {
+    //     element.textContent = empPayrollList.length;
+    // }
+    // createInnerHtml();
+    // localStorage.removeItem("editEmp");
+    if(site_properties.use_local_storage.match("true")){
+        getEmployeePayrollDataFromStorage();
+    }else getEmployeePayrollDataFromServer();
 });
 
+const processEmployeePayrollDataResponse=()=>{
+    document.querySelector(".emp-count").textContent=empPayrollList.length;
+    createInnerHtml();
+    localStorage.removeItem('editEmp');
+}
+
 const getEmployeePayrollDataFromStorage = () => {
-    return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+    empPayrollList = localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+    processEmployeePayrollDataResponse();
+}
+
+const getEmployeePayrollDataFromServer=()=>{
+    makeServiceCall("GET",site_properties.server_url,true)
+        .then(responseText=>{
+            empPayrollList = JSON.parse(responseText);
+            processEmployeePayrollDataResponse();
+        })
+        .catch(error=>{
+            console.log("GET Error Status: "+JSON.stringify(error));
+            empPayrollList = [];
+            processEmployeePayrollDataResponse();
+        })
 }
 
 createInnerHtml = () => {
@@ -28,8 +51,8 @@ createInnerHtml = () => {
            <td>${empPayrollData._salary}</td>
            <td>${stringifyDate(empPayrollData._startDate)}</td>
            <td>
-               <img id="${empPayrollData._id}" onclick="remove(this)" alt="delete" width="30px" src="../assets/icons/delete-black-18dp.svg">
-               <img id="${empPayrollData._id}" onclick="update(this)" alt="edit" width="30px" src="../assets/icons/create-black-18dp.svg ">
+               <img id="${empPayrollData.id}" onclick="remove(this)" alt="delete" width="30px" src="../assets/icons/delete-black-18dp.svg">
+               <img id="${empPayrollData.id}" onclick="update(this)" alt="edit" width="30px" src="../assets/icons/create-black-18dp.svg ">
            </td>
        </tr>`;
     }
@@ -46,22 +69,32 @@ function getDeptHtml(deptList) {
 
 //Remove an Employee from the Payroll details.
 const remove = (node) => {
-    let empPayrollData = empPayrollList.find((empData) => empData._id == node.id);
+    let empPayrollData = empPayrollList.find((empData) => empData.id == node.id);
     if (!empPayrollData) {
         return;
     }
     const index = empPayrollList
-        .map(empData => empData._id)
-        .indexOf(empPayrollData._id);
+        .map(empData => empData.id)
+        .indexOf(empPayrollData.id);
     empPayrollList.splice(index, 1);
-    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
-    document.querySelector(".emp-count").textContent = empPayrollList.length;
-    createInnerHtml();
+    if(site_properties.use_local_storage.match("true")){
+        localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+        createInnerHtml();
+    }else{
+        const deleteUrl = site_properties.server_url+empPayrollData.id.toString();
+        makeServiceCall("DELETE",deleteUrl,false)
+            .then(responseText=>{
+                createInnerHtml();
+            })
+            .catch(error=>{
+                console.log("DELETE error status: "+JSON.stringify(error));
+            });
+    }
 }
 
 const update = (node) => {
 
-    let empPayrollData = empPayrollList.find((empData) => empData._id == node.id);
+    let empPayrollData = empPayrollList.find((empData) => empData.id == node.id);
 
     if (!empPayrollData) return;
     localStorage.setItem('editEmp', JSON.stringify(empPayrollData));
